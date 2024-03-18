@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Homa {
@@ -17,8 +18,30 @@ public class Homa {
         System.out.print("enter your userid : ");
         String user = name.nextLine();
         String ID = UserId(user);
+        System.out.print("enter your interests : ");
+        String[] Interest = getInterests();
 
 
+
+    }
+    static String[] getInterests()
+    {
+        Scanner input = new Scanner(System.in);
+        String[] List = new String[10];
+        int i = 0;
+        boolean flag = false;
+        while (flag == false)
+        {
+            List[i] = input.nextLine();
+            System.out.println("if you done enter (0)");
+            if (Objects.equals(List[i], "0"))
+            {
+                flag = true;
+                break;
+            }
+            i++;
+        }
+        return List;
     }
     static String UserId (String id)
     {
