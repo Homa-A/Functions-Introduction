@@ -70,8 +70,7 @@ public class Homa {
         {
             N1[j]=N[i];
         }
-        String PN = new String(N1);
-        return  PN;
+        return new String(N1);
     }
     static String fullName(String firstname,String lastname)
     {
@@ -117,7 +116,6 @@ public class Homa {
             Full[i]=L[j];
             j++;
         }
-        String FULLNAME = new String(Full);
-        return FULLNAME;
+        return new String(Full);
     }
 }
