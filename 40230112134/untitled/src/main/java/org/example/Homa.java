@@ -1,16 +1,44 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Homa {
     public static void main(String[] Amir)
     {
-    String[] test = userFullInformation();
-        for (int i = 0; i < test.length; i++)
+
+    }
+    static String[] informationEncoder(String[] information)
+    {
+        String NI = Arrays.toString(information.clone());
+        System.out.println(NI);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("enter your shift :");
+        int shift = scanner.nextInt();
+        char[] NI1 = NI.toCharArray();
+        for (int i = 0; i < NI1.length ; i++)
         {
-            System.out.println(test[i]);
+            NI1[i] = (char) (NI1[i] + shift);
         }
+        String NI2 = new String(NI1);
+        return NI2.split(",");
+    }
+    static String[] informationDecoder(String[] information)
+    {
+        String NI = Arrays.toString(information.clone());
+        System.out.println(NI);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("enter your shift :");
+        int shift = scanner.nextInt();
+        char[] NI1 = NI.toCharArray();
+        for (int i = 0; i < NI1.length ; i++)
+        {
+            NI1[i] = (char) (NI1[i] - shift);
+        }
+        String NI2 = new String(NI1);
+        String[] newinformation = NI2.split(",");
+        return newinformation;
     }
     static String[] userFullInformation()
     {
