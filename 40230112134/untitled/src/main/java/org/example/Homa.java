@@ -7,9 +7,41 @@ import java.util.Scanner;
 public class Homa {
     public static void main(String[] Amir)
     {
-
+        System.out.println("first enter your information");
+        String[] Information = userFullInformation();
+        MainPage(Information);
     }
-    static String[] informationEncoder(String[] information)
+    static void  MainPage(String[] Information)
+    {
+        System.out.println("Choose your path");
+        System.out.println("1.Encoded your information");
+        System.out.println("2.Decoded your information");
+        System.out.println("3.Exit");
+        Scanner SC = new Scanner(System.in);
+        int way = SC.nextInt();
+        boolean flag = false;
+        while (flag == false)
+        {
+            switch (way)
+            {
+                case 1:
+                    informationEncoder(Information);
+                    break;
+                case 2:
+                    informationDecoder(Information);
+                    break;
+                case 3:
+                    System.out.println("Bye");
+                    flag = true;
+                    break;
+                default:
+                    System.out.println("Wrong");
+                    break;
+            }
+        }
+        System.out.println(Arrays.toString(Information));
+    }
+    static void informationEncoder(String[] information)
     {
         String NI = Arrays.toString(information.clone());
         System.out.println(NI);
@@ -22,9 +54,12 @@ public class Homa {
             NI1[i] = (char) (NI1[i] + shift);
         }
         String NI2 = new String(NI1);
-        return NI2.split(",");
+        String[] newinformation = NI2.split(",");
+        System.out.println(Arrays.toString(newinformation));
+        MainPage(newinformation);
+//        return newinformation;
     }
-    static String[] informationDecoder(String[] information)
+    static void informationDecoder(String[] information)
     {
         String NI = Arrays.toString(information.clone());
         System.out.println(NI);
@@ -38,7 +73,9 @@ public class Homa {
         }
         String NI2 = new String(NI1);
         String[] newinformation = NI2.split(",");
-        return newinformation;
+        System.out.println(Arrays.toString(newinformation));
+        MainPage(newinformation);
+//        return newinformation;
     }
     static String[] userFullInformation()
     {
@@ -73,7 +110,7 @@ public class Homa {
         boolean flag = false;
         while (flag == false)
         {
-            List[i] = input.next();
+            List[i] = input.nextLine();
             System.out.println("if you done enter (0)");
             if (Objects.equals(List[i], "0"))
             {
