@@ -6,6 +6,14 @@ import java.util.Scanner;
 public class Homa {
     public static void main(String[] Amir)
     {
+    String[] test = userFullInformation();
+        for (int i = 0; i < test.length; i++)
+        {
+            System.out.println(test[i]);
+        }
+    }
+    static String[] userFullInformation()
+    {
         Scanner name = new Scanner(System.in);
         System.out.print("enter your firstname : ");
         String first = name.nextLine();
@@ -20,9 +28,14 @@ public class Homa {
         String ID = UserId(user);
         System.out.print("enter your interests : ");
         String[] Interest = getInterests();
-
-
-
+        String[] UFI = new String[2+Interest.length];
+        UFI[0] = "Hello! My name is " + FullName + ". My ID is " + ID + ". Here are some of my interests:";
+        for (int i = 1; i < Interest.length+1; i++)
+        {
+            UFI[i] = i + ". " + Interest[(i-1)];
+        }
+        UFI[UFI.length-1] = "You can reach me via my phone number " +  PhoneNumber + ".";
+        return UFI;
     }
     static String[] getInterests()
     {
@@ -32,7 +45,7 @@ public class Homa {
         boolean flag = false;
         while (flag == false)
         {
-            List[i] = input.nextLine();
+            List[i] = input.next();
             System.out.println("if you done enter (0)");
             if (Objects.equals(List[i], "0"))
             {
@@ -41,7 +54,12 @@ public class Homa {
             }
             i++;
         }
-        return List;
+        String[] L = new String[i];
+        for (int j = 0; j<i ; j++)
+        {
+            L[j]=List[j];
+        }
+        return L;
     }
     static String UserId (String id)
     {
