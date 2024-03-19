@@ -26,9 +26,11 @@ public class Homa {
             {
                 case 1:
                     informationEncoder(Information);
+                    flag = true;
                     break;
                 case 2:
                     informationDecoder(Information);
+                    flag = true;
                     break;
                 case 3:
                     System.out.println("Bye");
@@ -56,7 +58,7 @@ public class Homa {
         String NI2 = new String(NI1);
         String[] newinformation = NI2.split(",");
         System.out.println(Arrays.toString(newinformation));
-        MainPage(newinformation);
+//        MainPage(newinformation);
 //        return newinformation;
     }
     static void informationDecoder(String[] information)
@@ -74,7 +76,7 @@ public class Homa {
         String NI2 = new String(NI1);
         String[] newinformation = NI2.split(",");
         System.out.println(Arrays.toString(newinformation));
-        MainPage(newinformation);
+//        MainPage(newinformation);
 //        return newinformation;
     }
     static String[] userFullInformation()
